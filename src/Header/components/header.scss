@@ -1,0 +1,45 @@
+@import "../../_app/styles/scss/app-variables";
+
+.header-background {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.navbar-header {
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.header-menu {
+  float: left;
+  padding: ($navbar-height - $navbar-menu-height)/2 0;
+}
+
+.navbar-fixed-bottom, .navbar-fixed-top {
+  position: relative !important;
+}
+
+.navbar > .container-fluid {
+  .navbar-brand.header-logo {
+    margin: 0 25px;
+    width:  104px  !important;
+    top: -14px;
+
+    svg {
+      height: $navbar-logo-height;
+      fill: $gray-lighter;
+    }
+  }
+  .block-header {
+    color: grey;
+    margin-top: 25px;
+    font-size: 25px;
+    font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif !important;
+  }
+}
+
+.header-breadcrumbs {
+  float: left;
+  padding: ($navbar-height - $navbar-breadcrumbs-height)/2 0;
+  line-height: $navbar-breadcrumbs-height;
+}

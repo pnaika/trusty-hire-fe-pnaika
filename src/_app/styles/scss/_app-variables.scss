@@ -1,0 +1,50 @@
+$roboto: "Roboto", sans-serif;
+$black: #000;
+$white: #fff;
+
+$gray-base:             #000000;
+$gray-darker:           #2c2c2c;
+$gray-dark:             #383838; // #333
+$gray:                  #555555; // #555
+$gray-light:            lighten($gray-base, 46.7%); // #777
+$gray-lighter:          lighten($gray-base, 93.5%); // #eee
+$gray-lightest:         #d3d3d3;
+$gray-grid:             #3F3F3F;
+$gray-grid-header:      #5F5F5F;
+$glyphicon-inactive:    #9d9d9d;
+
+$blue:                  #7ac4e8;
+$blue-darker:           darken($blue, 33.5%);
+$blue-dark:             darken($blue, 20%);
+$blue-light:            lighten($blue, 10%);
+$blue-lighter:          lighten($blue, 20%);
+
+$brand-primary:         darken(#428bca, 6.5%); // #337ab7
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+$state-danger-text:     #d9534f;
+
+//** z-indexes of the application
+$navbar-z-index: 8;
+$modal-z-index: 10;
+$slide-in-modal-z-index: 6;
+$slide-in-modal-loading-z-index: $slide-in-modal-z-index + 1;
+$main-content-loading-z-index: 7;
+$grid-button-z-index: 1;
+
+// font sizes
+$font-size-xs: 12px;
+$font-size-sm: 13px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 21px;
+
+// navbar heights
+$navbar-height: 71px;
+$navbar-icon-height: 29px;
+$navbar-logo-height: 18px;
+$navbar-menu-height: 18px;
+$navbar-breadcrumbs-height: 16px;
+$navbar-dealer-height: 32px; // minimum 31px due to the input dropdown
