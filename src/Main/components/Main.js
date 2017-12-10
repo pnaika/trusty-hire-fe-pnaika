@@ -9,8 +9,8 @@ export const Main = ({ children }) => {
     return (
         <div>
             <Helmet>
-                <title>Chain Smokers</title>
-                <meta name="description" content="Chain Smokers" />
+                <title>Trusty Hire</title>
+                <meta name="description" content="trusty-hire" />
             </Helmet>
             <Header />
             <div className="row">
