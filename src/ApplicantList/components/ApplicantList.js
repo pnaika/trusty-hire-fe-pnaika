@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { Filters } from 'react-data-grid-addons';
 import qs from 'query-string';
 import history from '../../_app/history';
-import DateFormatter from '../../GridView/components/DateFormatter';
+import { LinkFormatter } from '../../GridView/components/LinkFormatter';
 
 const { SingleSelectFilter } = Filters;
 
@@ -29,9 +29,57 @@ export class ApplicantList extends Component {
     }
 
 
-    getGridColumns(props) {
+    getGridColumns() {
         return [
-
+            {
+                key: 'ApplicantID',
+                name: 'Applicant ID',
+                filterable: true,
+                filterRenderer: SingleSelectFilter,
+                sortable: true,
+                formatter: (
+                    <LinkFormatter
+                        pathValue="ApplicantID"
+                        path="./partDetails"
+                    />
+                ),
+                getRowMetaData: (data) => data
+            },
+            {
+                key: 'firstName',
+                name: 'First Name',
+                filterable: true,
+                filterRenderer: SingleSelectFilter,
+                sortable: true
+            },
+            {
+                key: 'lastName',
+                name: 'Last Name',
+                filterable: true,
+                filterRenderer: SingleSelectFilter,
+                sortable: true
+            },
+            {
+                key: 'email',
+                name: 'Email ID',
+                filterable: true,
+                filterRenderer: SingleSelectFilter,
+                sortable: true
+            },
+            {
+                key: 'phoneNumber',
+                name: 'Contact Number',
+                filterable: true,
+                filterRenderer: SingleSelectFilter,
+                sortable: true
+            },
+            {
+                key: 'gender',
+                name: 'Gender',
+                filterable: true,
+                filterRenderer: SingleSelectFilter,
+                sortable: true
+            }
         ];
     }
 
@@ -56,7 +104,7 @@ export class ApplicantList extends Component {
 
 function mapStatetoProps(state) {
     return {
-        applicantList: state.applicantList
+        applicantList: state.applicantList.applicantList
     };
 }
 

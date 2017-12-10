@@ -9,6 +9,8 @@ export class LinkFormatter extends Component {
             pathValue,
             dependentValues,
             defaultValue,
+            path,
+            search
         } = this.props;
 
         const printPathValue = get(dependentValues, pathValue, defaultValue);
@@ -16,11 +18,11 @@ export class LinkFormatter extends Component {
         return (
             <Link
                 to={{
-                    pathname: '/part-details',
-                    search: `?id=${printPathValue}`
+                    pathname: path,
+                    search: search
                 }}
             >
-                View Details
+                { printPathValue }
             </Link>
         );
     }
@@ -28,6 +30,7 @@ export class LinkFormatter extends Component {
 
 LinkFormatter.defaultProps = {
     defaultValue: '',
+    search: ''
 };
 
 LinkFormatter.propTypes = {
@@ -35,6 +38,7 @@ LinkFormatter.propTypes = {
     displayValue: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
     pathValue: PropTypes.string.isRequired,
+    search: PropTypes.string
 };
 
 export default LinkFormatter;

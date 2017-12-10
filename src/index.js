@@ -12,7 +12,7 @@ import store from './_app/store';
 
 //components
 import { TrustyHireHomePage } from './TrustyHireHomePage';
-import ApplicantList from './ApplicantList';
+import { ApplicantList } from './ApplicantList';
 import {AuthenticatedRoutesWrapper} from './Auth/AuthenticatedRoutesWrapper';
 import {Main} from './Main/components/Main';
 

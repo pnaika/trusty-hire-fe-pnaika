@@ -37,7 +37,6 @@ export class GridView extends Component {
         this.onCellDeSelected = this.onCellDeSelected.bind(this);
 
         this.printEmptyRowsMessage = this.printEmptyRowsMessage.bind(this);
-        this.sendRecall = this.sendRecall.bind(this);
     }
 
     componentWillMount() {
@@ -189,13 +188,18 @@ export class GridView extends Component {
                 {( { width, top } ) => (
                     <div>
                         <ReactDataGrid
+                            enableCellSelect={false}
                             onGridSort={this.handleGridSort}
                             columns={columns}
+                            minWidth={width}
                             rowGetter={this.rowGetter}
                             rowsCount={this.rowsCount()}
-                            minWidth={width}
                             rowHeight={rowHeight}
-                            minHeight={180}
+                            minHeight={tableHeight}
+                            toolbar={<Toolbar enableFilter />}
+                            onAddFilter={this.handleFilterChange}
+                            getValidFilterValues={this.getValidFilterValues}
+                            onClearFilters={this.handleOnClearFilters}
                             emptyRowsView={this.printEmptyRowsMessage}
                         />
                     </div>

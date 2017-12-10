@@ -11,7 +11,7 @@ export default function (state = initialState, action) {
         case APPLICANT_LIST:
             return {
                 ...state,
-                requests: action.payload.requests
+                applicantList: action.payload.applicantList
             };
         default:
             return state;

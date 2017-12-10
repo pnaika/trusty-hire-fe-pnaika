@@ -20,21 +20,11 @@
 }
 
 .navbar > .container-fluid {
-  .navbar-brand.header-logo {
-    margin: 0 25px;
-    width:  104px  !important;
-    top: -14px;
-
-    svg {
-      height: $navbar-logo-height;
-      fill: $gray-lighter;
+  .navbar-brand{
+    .header-logo {
+      width: 100px;
+      margin: 0 25px;
     }
-  }
-  .block-header {
-    color: grey;
-    margin-top: 25px;
-    font-size: 25px;
-    font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif !important;
   }
 }
 

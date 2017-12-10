@@ -14,12 +14,11 @@ export class Header extends Component {
                 <div className="container-fluid header-background">
                     <div className="navbar-header">
                         <Link
-                            className="navbar-brand header-logo"
+                            className="navbar-brand"
                             to={'/'}
                         >
-                            LOGO
+                            <img src="../../_app/images/th03.png" className="header-logo"/>
                         </Link>
-                        <div className="pull-right block-header">Trusty-Hire</div>
                     </div>
                 </div>
             </nav>
