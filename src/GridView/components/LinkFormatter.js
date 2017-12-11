@@ -14,12 +14,13 @@ export class LinkFormatter extends Component {
         } = this.props;
 
         const printPathValue = get(dependentValues, pathValue, defaultValue);
+        const searchValue = search+get(dependentValues, pathValue, defaultValue);
 
         return (
             <Link
                 to={{
                     pathname: path,
-                    search: search
+                    search: searchValue
                 }}
             >
                 { printPathValue }

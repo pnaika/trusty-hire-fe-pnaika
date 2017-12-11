@@ -40,7 +40,8 @@ export class ApplicantList extends Component {
                 formatter: (
                     <LinkFormatter
                         pathValue="ApplicantID"
-                        path="./partDetails"
+                        path="./applicant-details"
+                        search="?id="
                     />
                 ),
                 getRowMetaData: (data) => data

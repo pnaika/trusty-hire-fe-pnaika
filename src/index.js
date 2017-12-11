@@ -1,3 +1,6 @@
+// styles
+import './_app/styles/index.scss';
+
 // dependencies
 import React from 'react';
 import { render } from 'react-dom';
@@ -13,6 +16,7 @@ import store from './_app/store';
 //components
 import { TrustyHireHomePage } from './TrustyHireHomePage';
 import { ApplicantList } from './ApplicantList';
+import { ApplicantDetails } from './ApplicantDetails';
 import {AuthenticatedRoutesWrapper} from './Auth/AuthenticatedRoutesWrapper';
 import {Main} from './Main/components/Main';
 
@@ -34,6 +38,9 @@ const App = () => {
                            strict
                            path="/applicant-list"
                            component={ApplicantList}
+                    />
+                    <Route path="/applicant-details"
+                           component={ApplicantDetails}
                     />
 
                 </Switch>

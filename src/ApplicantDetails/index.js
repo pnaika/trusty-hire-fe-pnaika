@@ -1,12 +1,5 @@
-import React, { Component } from 'react';
+import * as actions from './actions';
+import reducer from './reducer';
+import ApplicantDetails from './components/ApplicantDetails';
 
-export class Dummy extends Component {
-    render() {
-        return (
-            <div className="toaster-wrapper">
-                Dummy class
-            </div>);
-    }
-}
-
-export default Dummy;
+export { actions, reducer, ApplicantDetails };
