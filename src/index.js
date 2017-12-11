@@ -17,7 +17,8 @@ import store from './_app/store';
 import { TrustyHireHomePage } from './TrustyHireHomePage';
 import { ApplicantList } from './ApplicantList';
 import { ApplicantDetails } from './ApplicantDetails';
-import {AuthenticatedRoutesWrapper} from './Auth/AuthenticatedRoutesWrapper';
+import { AddApplicantDetails } from './AddApplicantDetails';
+import { AuthenticatedRoutesWrapper } from './Auth/AuthenticatedRoutesWrapper';
 import {Main} from './Main/components/Main';
 
 const App = () => {
@@ -32,8 +33,6 @@ const App = () => {
                 />
                 <AuthenticatedRoutesWrapper shellComponent={Main}>
                 <Switch>
-
-
                     <Route exact
                            strict
                            path="/applicant-list"
@@ -42,7 +41,11 @@ const App = () => {
                     <Route path="/applicant-details"
                            component={ApplicantDetails}
                     />
-
+                    <Route exact
+                           strict
+                           path="/new-applicant"
+                           component={AddApplicantDetails}
+                    />
                 </Switch>
                 </AuthenticatedRoutesWrapper>
                 </Switch>

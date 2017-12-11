@@ -1,9 +1,11 @@
+import './applicant-list.scss';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { getApplicantList } from '../actions';
 import { GridView } from '../../GridView';
-import { withRouter } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import { Filters } from 'react-data-grid-addons';
 import qs from 'query-string';
 import history from '../../_app/history';
@@ -89,10 +91,15 @@ export class ApplicantList extends Component {
         const { columns } = this.state;
 
         return (
-            <div>
+            <div className="applicant-list-page">
                 <Helmet>
                     <title>Applicant List</title>
                 </Helmet>
+
+                <h1>Applicant List</h1>
+                <Link to="./new-applicant">
+                    <button className="btn btn-primary">Add New Applicant</button>
+                </Link>
 
                 <GridView
                     data={applicantList}

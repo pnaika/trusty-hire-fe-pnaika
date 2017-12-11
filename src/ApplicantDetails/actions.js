@@ -13,7 +13,6 @@ export function setApplicantDetails(applicantDetails) {
 }
 
 export function getApplicantDetails() {
-    console.log('ApplicantDetailsMockData :', ApplicantDetailsMockData)
     return (dispatch) => {
         dispatch(setApplicantDetails(ApplicantDetailsMockData));
     };
