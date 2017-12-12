@@ -164,7 +164,7 @@ class ApplicantInfoForm extends Component {
 
                 </div>
 
-                <div>
+                <div className="margin-top-10">
                     <h2>Work Experience</h2>
                     <div className="experience-info-form">
                         <div className="margin-bottom-10 ">
@@ -184,7 +184,7 @@ class ApplicantInfoForm extends Component {
                     </div>
                 </div>
 
-                <div>
+                <div className="margin-top-10">
                     <h2>Education</h2>
                     <div className="experience-info-form">
                         <div className="margin-bottom-10 ">
@@ -197,7 +197,7 @@ class ApplicantInfoForm extends Component {
                     </div>
                 </div>
 
-                <div>
+                <div className="margin-top-10">
                     <h2>Visa Details</h2>
                     <div>
                         <Field
@@ -219,7 +219,7 @@ class ApplicantInfoForm extends Component {
                     </div>
                 </div>
 
-                <div>
+                <div className="margin-top-10">
                     <h2>Websites or any other links?</h2>
                     <div className="experience-info-form">
                         <div className="margin-bottom-10 ">
@@ -232,7 +232,7 @@ class ApplicantInfoForm extends Component {
                     </div>
                 </div>
 
-                <div>
+                <div className="margin-top-10">
                     <Field
                         name="notes"
                         component={TextField}
@@ -242,7 +242,7 @@ class ApplicantInfoForm extends Component {
                         rows={2}
                     />
                 </div>
-                <div>
+                <div className="margin-top-10">
                     <Field
                         name="dataSource"
                         component={AutoComplete}
@@ -252,7 +252,7 @@ class ApplicantInfoForm extends Component {
                         dataSource={['FaceBook', 'Ads', 'Website', 'TV', 'Other']}
                     />
                 </div>
-                <div className="applicant-form-botton">
+                <div className="applicant-form-botton margin-top-10">
                     <button className="btn btn-primary" type="submit" disabled={submitting}>Submit</button>
                     <button
                         className="btn btn-default"
