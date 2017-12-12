@@ -1,3 +1,5 @@
+import './add-applicant-details.scss';
+
 import React, { Component } from 'react';
 import ApplicantInfoForm from './ApplicantInfoForm';
 
@@ -15,7 +17,7 @@ export class AddApplicantDetails extends Component {
     render() {
         return (
             <div className="add-applicant-details-page">
-                <h1>Add New Applicant</h1>
+                <h1>ADD NEW APPLICANT</h1>
 
                 <ApplicantInfoForm  onSubmit={this.submit}/>
             </div>

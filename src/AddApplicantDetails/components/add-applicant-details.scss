@@ -1,0 +1,43 @@
+.applicant-form {
+
+  .personal-information {
+    div {
+      margin: 0 10px
+    }
+
+    div:first-child {
+      margin: 0px;
+    }
+
+    div:last-child{
+      margin: 0px;
+    }
+  }
+
+  .applicant-form-botton {
+    button {
+      margin: 10px;
+    }
+
+    display: grid;
+  }
+
+  .experience-info-form {
+    button {
+      margin-bottom: 10px;
+    }
+    .experience-card {
+      border: 1px solid gray;
+
+      div, h4, button {
+        margin: 10px;
+      }
+
+      .field-text-area {
+        width: 90% !important;
+      }
+    }
+  }
+
+
+}

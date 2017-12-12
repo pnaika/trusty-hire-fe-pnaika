@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
-import { RadioButton } from 'material-ui/RadioButton';
+import './add-applicant-details.scss';
+
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Field, reduxForm, formValueSelector, FieldArray} from 'redux-form';
+import {RadioButton} from 'material-ui/RadioButton';
 import MenuItem from 'material-ui/MenuItem';
-import { AutoComplete as MUIAutoComplete } from 'material-ui';
+import {AutoComplete as MUIAutoComplete} from 'material-ui';
 import {
     AutoComplete,
     Checkbox,
@@ -15,12 +17,10 @@ import {
     TextField,
     Toggle
 } from 'redux-form-material-ui';
-
-
+import { SKILLSET_FIELD_VALUES, EXPERIENCE_FIELD_VALUES, EDUCATION_FIELD_VALUES, WEBSITES_FIELD_VALUES} from '../../_app/constantJson';
+import RenderMultipleFields from "./RenderMutipleFields";
 
 class ApplicantInfoForm extends React.Component {
-
-
     constructor(props) {
         super(props);
 
@@ -33,26 +33,27 @@ class ApplicantInfoForm extends React.Component {
         };
     }
 
-
-    // validation functions
     requiredFields(value) {
-        if(value == null) {
+        if (value === null || value === undefined) {
             return 'Required';
-            this.setState({
-                isFormValid: false
-            });
-        } else {
-            this.setState({
-                isFormValid: true
-            });
         }
+
+        return undefined;
     }
-    // requiredFields = value => ((value == null) ? 'Required' : undefined);
-    contactNumberValidation = value => ((value.length != 10) ? 'Invalid Phone Number' : undefined);
-    emailValidation = value =>
-        (value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-            ? 'Invalid email'
-            : undefined);
+
+    contactNumberValidation(value) {
+        if (value && value.length !== 10) {
+            return 'Invalid Phone Number';
+        }
+        return undefined;
+    }
+
+    emailValidation(value) {
+        if (value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+            return 'Invalid email';
+        }
+        return undefined;
+    }
 
     componentDidMount() {
         this.refs.name // the Field
@@ -62,54 +63,182 @@ class ApplicantInfoForm extends React.Component {
     }
 
     render() {
-        const { handleSubmit, pristine, reset, submitting } = this.props;
-        const { isFormValid } = this.state;
+        const {handleSubmit, pristine, reset, submitting} = this.props;
+        const {isFormValid} = this.state;
 
-        console.log(submitting);
         return (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="applicant-form">
                 <div>
-                    <h4>Personal Information</h4>
+                    <h2>Personal Information</h2>
+                    <div className="personal-information">
+                        <div>
+                            <Field
+                                name="firstName"
+                                component={TextField}
+                                hintText="First Name"
+                                floatingLabelText="Tell us your first name"
+                                // validate={this.requiredFields}
+                                ref="name"
+                                withRef
+                            />
+
+                            <Field
+                                name="lastName"
+                                component={TextField}
+                                hintText="Last Name"
+                                floatingLabelText="Last name"
+                                // validate={this.requiredFields}
+                            />
+
+                            <Field
+                                name="email"
+                                component={TextField}
+                                hintText="Email"
+                                floatingLabelText="Email"
+                                // validate={[this.requiredFields, this.emailValidation]}
+                            />
+
+                            <Field
+                                name="contactNumber"
+                                component={TextField}
+                                hintText="Contact Number"
+                                floatingLabelText="Contact Number"
+                                // validate={[this.requiredFields, this.contactNumberValidation]}
+                            />
+
+                            <Field
+                                name="married"
+                                component={AutoComplete}
+                                floatingLabelText="Are you married?"
+                                openOnFocus
+                                filter={MUIAutoComplete.fuzzyFilter}
+                                dataSource={['Yes', 'No']}
+                            />
+                        </div>
+                    </div>
+                    <h5>Address:</h5>
                     <Field
-                        name="firstName"
+                        name="address.line1"
                         component={TextField}
-                        hintText="First Name"
-                        floatingLabelText="First Name"
-                        validate={this.requiredFields}
-                        ref="name"
-                        withRef
+                        hintText="Line 1"
+                        floatingLabelText="Line 2"
+                        // validate={this.requiredFields}
                     />
 
                     <Field
-                        name="lastName"
+                        name="address.line2"
                         component={TextField}
-                        hintText="Last Name"
-                        floatingLabelText="Last Name"
-                        validate={this.requiredFields}
+                        hintText="Line 2"
+                        floatingLabelText="Line 2"
                     />
 
                     <Field
-                        name="email"
+                        name="address.city"
                         component={TextField}
-                        hintText="Email"
-                        floatingLabelText="Email"
-                        validate={[this.requiredFields, this.emailValidation]}
+                        hintText="City"
+                        floatingLabelText="City"
+                        // validate={this.requiredFields}
                     />
 
                     <Field
-                        name="contactNumber"
+                        name="address.state"
                         component={TextField}
-                        hintText="Contact Number"
-                        floatingLabelText="Contact Number"
-                        validate={[this.requiredFields, this.contactNumberValidation]}
+                        hintText="State"
+                        floatingLabelText="State"
+                        // validate={this.requiredFields}
                     />
 
+                    <Field
+                        name="address.country"
+                        component={TextField}
+                        hintText="Country"
+                        floatingLabelText="Country"
+                        // validate={this.requiredFields}
+                    />
                     <h5>Gender: </h5>
-                    <Field name="gender" component={RadioButtonGroup} validate={this.requiredFields}>
-                        <RadioButton value="male" label="Male" />
-                        <RadioButton value="female" label="Female" />
-                        <RadioButton value="notMentioned" label="Prefer Not To Mention" />
+                    <Field name="gender" component="select">
+                        <option/>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="notMentioned">Prefer Not To Mention</option>
                     </Field>
+                    <br/>
+                    <Field
+                        name="countryOfCitizenship"
+                        component={TextField}
+                        hintText="Country Of Citizenship"
+                        floatingLabelText="Country Of Citizenship"
+                        // validate={this.requiredFields}
+                    />
+
+                </div>
+
+                <div>
+                    <h2>Work Experience</h2>
+                    <div className="experience-info-form">
+                        <div className="margin-bottom-10 ">
+                            <FieldArray name="experience"
+                                        component={RenderMultipleFields}
+                                        label={EXPERIENCE_FIELD_VALUES.label}
+                                        keyValues={EXPERIENCE_FIELD_VALUES.keyValue}
+                                        repeatTimes={EXPERIENCE_FIELD_VALUES.repeatTimes}/>
+                        </div>
+                        <div>
+                            <FieldArray name="skillSet"
+                                        component={RenderMultipleFields}
+                                        label={SKILLSET_FIELD_VALUES.label}
+                                        keyValues={SKILLSET_FIELD_VALUES.keyValue}
+                                        repeatTimes={SKILLSET_FIELD_VALUES.repeatTimes}/>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Education</h2>
+                    <div className="experience-info-form">
+                        <div className="margin-bottom-10 ">
+                            <FieldArray name="education"
+                                        component={RenderMultipleFields}
+                                        label={EDUCATION_FIELD_VALUES.label}
+                                        keyValues={EDUCATION_FIELD_VALUES.keyValue}
+                                        repeatTimes={EDUCATION_FIELD_VALUES.repeatTimes}/>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Visa Details</h2>
+                    <div>
+                        <Field
+                            name="visaDetails.visaStatus"
+                            component={TextField}
+                            hintText="What Type of Visa do you hold?"
+                            floatingLabelText="Visa Status"
+                            // validate={this.requiredFields}
+                        />
+                    </div>
+                    <div>
+                        <Field
+                            name="visaDetails.validity"
+                            component={DatePicker}
+                            hintText="Visa valid till?"
+                            floatingLabelText="Visa validity"
+                            // validate={this.requiredFields}
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Websites or any other links?</h2>
+                    <div className="experience-info-form">
+                        <div className="margin-bottom-10 ">
+                            <FieldArray name="websites"
+                                        component={RenderMultipleFields}
+                                        label={WEBSITES_FIELD_VALUES.label}
+                                        keyValues={WEBSITES_FIELD_VALUES.keyValue}
+                                        repeatTimes={WEBSITES_FIELD_VALUES.repeatTimes}/>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
@@ -132,7 +261,7 @@ class ApplicantInfoForm extends React.Component {
                         dataSource={['FaceBook', 'Ads', 'Website', 'TV', 'Other']}
                     />
                 </div>
-                <div>
+                <div className="applicant-form-botton">
                     <button className="btn btn-primary" type="submit" disabled={submitting}>Submit</button>
                     <button
                         className="btn btn-default"
