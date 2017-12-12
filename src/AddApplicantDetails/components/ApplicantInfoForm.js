@@ -3,24 +3,16 @@ import './add-applicant-details.scss';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, formValueSelector, FieldArray} from 'redux-form';
-import {RadioButton} from 'material-ui/RadioButton';
-import MenuItem from 'material-ui/MenuItem';
 import {AutoComplete as MUIAutoComplete} from 'material-ui';
 import {
     AutoComplete,
-    Checkbox,
     DatePicker,
-    TimePicker,
-    RadioButtonGroup,
-    SelectField,
-    Slider,
     TextField,
-    Toggle
 } from 'redux-form-material-ui';
 import { SKILLSET_FIELD_VALUES, EXPERIENCE_FIELD_VALUES, EDUCATION_FIELD_VALUES, WEBSITES_FIELD_VALUES} from '../../_app/constantJson';
 import RenderMultipleFields from "./RenderMutipleFields";
 
-class ApplicantInfoForm extends React.Component {
+class ApplicantInfoForm extends Component {
     constructor(props) {
         super(props);
 
@@ -63,8 +55,7 @@ class ApplicantInfoForm extends React.Component {
     }
 
     render() {
-        const {handleSubmit, pristine, reset, submitting} = this.props;
-        const {isFormValid} = this.state;
+        const { handleSubmit, pristine, reset, submitting } = this.props;
 
         return (
             <form onSubmit={handleSubmit} className="applicant-form">
@@ -77,7 +68,7 @@ class ApplicantInfoForm extends React.Component {
                                 component={TextField}
                                 hintText="First Name"
                                 floatingLabelText="Tell us your first name"
-                                // validate={this.requiredFields}
+                                validate={this.requiredFields}
                                 ref="name"
                                 withRef
                             />
@@ -87,7 +78,7 @@ class ApplicantInfoForm extends React.Component {
                                 component={TextField}
                                 hintText="Last Name"
                                 floatingLabelText="Last name"
-                                // validate={this.requiredFields}
+                                validate={this.requiredFields}
                             />
 
                             <Field
@@ -95,7 +86,7 @@ class ApplicantInfoForm extends React.Component {
                                 component={TextField}
                                 hintText="Email"
                                 floatingLabelText="Email"
-                                // validate={[this.requiredFields, this.emailValidation]}
+                                validate={[this.requiredFields, this.emailValidation]}
                             />
 
                             <Field
@@ -103,7 +94,7 @@ class ApplicantInfoForm extends React.Component {
                                 component={TextField}
                                 hintText="Contact Number"
                                 floatingLabelText="Contact Number"
-                                // validate={[this.requiredFields, this.contactNumberValidation]}
+                                validate={[this.requiredFields, this.contactNumberValidation]}
                             />
 
                             <Field
@@ -122,7 +113,7 @@ class ApplicantInfoForm extends React.Component {
                         component={TextField}
                         hintText="Line 1"
                         floatingLabelText="Line 2"
-                        // validate={this.requiredFields}
+                        validate={this.requiredFields}
                     />
 
                     <Field
@@ -137,7 +128,7 @@ class ApplicantInfoForm extends React.Component {
                         component={TextField}
                         hintText="City"
                         floatingLabelText="City"
-                        // validate={this.requiredFields}
+                        validate={this.requiredFields}
                     />
 
                     <Field
@@ -145,7 +136,7 @@ class ApplicantInfoForm extends React.Component {
                         component={TextField}
                         hintText="State"
                         floatingLabelText="State"
-                        // validate={this.requiredFields}
+                        validate={this.requiredFields}
                     />
 
                     <Field
@@ -153,7 +144,7 @@ class ApplicantInfoForm extends React.Component {
                         component={TextField}
                         hintText="Country"
                         floatingLabelText="Country"
-                        // validate={this.requiredFields}
+                        validate={this.requiredFields}
                     />
                     <h5>Gender: </h5>
                     <Field name="gender" component="select">
@@ -168,7 +159,7 @@ class ApplicantInfoForm extends React.Component {
                         component={TextField}
                         hintText="Country Of Citizenship"
                         floatingLabelText="Country Of Citizenship"
-                        // validate={this.requiredFields}
+                        validate={this.requiredFields}
                     />
 
                 </div>
@@ -214,7 +205,7 @@ class ApplicantInfoForm extends React.Component {
                             component={TextField}
                             hintText="What Type of Visa do you hold?"
                             floatingLabelText="Visa Status"
-                            // validate={this.requiredFields}
+                            validate={this.requiredFields}
                         />
                     </div>
                     <div>
@@ -223,7 +214,7 @@ class ApplicantInfoForm extends React.Component {
                             component={DatePicker}
                             hintText="Visa valid till?"
                             floatingLabelText="Visa validity"
-                            // validate={this.requiredFields}
+                            validate={this.requiredFields}
                         />
                     </div>
                 </div>
