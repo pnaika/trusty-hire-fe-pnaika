@@ -4,6 +4,7 @@ import {
 } from '../_app/actionTypes';
 import { checkStatus, parseJSON } from '../_app/utils';
 import { ApplicantDetailsMockData } from '../mockData/ApplicantDetailsMockData';
+import {actions as toastActions} from "../Toaster";
 
 export function setApplicantDetails(applicantDetails) {
     return {
@@ -13,7 +14,12 @@ export function setApplicantDetails(applicantDetails) {
 }
 
 export function getApplicantDetails() {
+    const res = {
+        status: 200,
+        customText: 'Applicant data is saved successfully !'
+    };
     return (dispatch) => {
+        dispatch(toastActions.setToasterMessage(res));
         dispatch(setApplicantDetails(ApplicantDetailsMockData));
     };
     // // const url = `${ipAddress}/api/v1/blockchain/sno/${serialNumber}/assembly/${assemblerId}`;

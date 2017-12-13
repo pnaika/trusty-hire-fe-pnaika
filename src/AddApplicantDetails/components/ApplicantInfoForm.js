@@ -59,7 +59,7 @@ class ApplicantInfoForm extends Component {
 
         return (
             <form onSubmit={handleSubmit} className="applicant-form">
-                <div>
+                <div id="personal-information">
                     <h2>Personal Information</h2>
                     <div className="personal-information">
                         <div>
@@ -164,7 +164,7 @@ class ApplicantInfoForm extends Component {
 
                 </div>
 
-                <div className="margin-top-10">
+                <div className="margin-top-10" id="experience-information">
                     <h2>Work Experience</h2>
                     <div className="experience-info-form">
                         <div className="margin-bottom-10 ">
@@ -184,7 +184,7 @@ class ApplicantInfoForm extends Component {
                     </div>
                 </div>
 
-                <div className="margin-top-10">
+                <div className="margin-top-10" id="education-information">
                     <h2>Education</h2>
                     <div className="experience-info-form">
                         <div className="margin-bottom-10 ">
@@ -197,7 +197,7 @@ class ApplicantInfoForm extends Component {
                     </div>
                 </div>
 
-                <div className="margin-top-10">
+                <div className="margin-top-10" id="visa-information">
                     <h2>Visa Details</h2>
                     <div>
                         <Field
@@ -219,7 +219,7 @@ class ApplicantInfoForm extends Component {
                     </div>
                 </div>
 
-                <div className="margin-top-10">
+                <div className="margin-top-10" id="website-information">
                     <h2>Websites or any other links?</h2>
                     <div className="experience-info-form">
                         <div className="margin-bottom-10 ">

@@ -1,0 +1,21 @@
+.breadcrumbs-container {
+  .glyphicon-folder-open {
+    margin-right: 15px;
+  }
+
+  .breadcrumb {
+    display: inline-block;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: black;
+      font-weight: normal;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

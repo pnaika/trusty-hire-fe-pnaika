@@ -6,6 +6,8 @@ import {Helmet} from 'react-helmet';
 import {getApplicantDetails} from '../actions';
 import {withRouter} from 'react-router-dom';
 import {map} from 'lodash';
+import {getApplicantList} from "../../ApplicantList/actions";
+import { setBreadcrumbs } from "../../Breadcrumbs";
 
 export class ApplicantDetails extends Component {
     constructor(props) {
@@ -13,6 +15,7 @@ export class ApplicantDetails extends Component {
     }
 
     componentWillMount() {
+        this.props.setBreadcrumbs([{label: 'applicant details', link: '/applicant-details'}]);
         this.props.getApplicantDetails();
     }
 
@@ -121,6 +124,9 @@ function mapDispatchtoProps(dispatch) {
     return {
         getApplicantDetails: () => {
             dispatch(getApplicantDetails());
+        },
+        setBreadcrumbs: (breadcrumbs) => {
+            dispatch(setBreadcrumbs(breadcrumbs));
         }
     };
 }

@@ -1,6 +1,7 @@
 import './applicant-list.scss';
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { getApplicantList } from '../actions';
@@ -10,6 +11,7 @@ import { Filters } from 'react-data-grid-addons';
 import qs from 'query-string';
 import history from '../../_app/history';
 import { LinkFormatter } from '../../GridView/components/LinkFormatter';
+import { setBreadcrumbs } from '../../Breadcrumbs';
 
 const { SingleSelectFilter } = Filters;
 
@@ -27,6 +29,7 @@ export class ApplicantList extends Component {
     componentWillMount() {
         const { location } = history;
 
+        this.props.setBreadcrumbs([{label: "applicant list", link: "/applicant-list"}]);
         this.props.getApplicantList();
     }
 
@@ -110,6 +113,10 @@ export class ApplicantList extends Component {
     }
 }
 
+ApplicantList.propTypes = {
+    setBreadcrumbs: PropTypes.func.isRequired
+};
+
 function mapStatetoProps(state) {
     return {
         applicantList: state.applicantList.applicantList
@@ -120,6 +127,9 @@ function mapDispatchtoProps(dispatch) {
     return {
         getApplicantList: () => {
             dispatch(getApplicantList());
+        },
+        setBreadcrumbs: (breadcrumbs) => {
+            dispatch(setBreadcrumbs(breadcrumbs));
         }
     };
 }

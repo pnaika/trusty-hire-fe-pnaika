@@ -1,5 +1,6 @@
-.applicant-form {
+@import "../../_app/styles/scss/app-variables";
 
+.applicant-form {
   .personal-information {
     div {
       margin: 0 10px
@@ -38,6 +39,12 @@
       }
     }
   }
+}
 
-
+.add-applicant-details-page {
+  .side-nav {
+    position: fixed !important;
+    margin-top: 48px;
+    margin-left: -40px;
+  }
 }

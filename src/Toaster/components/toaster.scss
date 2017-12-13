@@ -1,0 +1,71 @@
+@import "../../_app/styles/scss/app-variables";
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toaster-wrapper {
+  position: fixed;
+  z-index: 10;
+  width: 60%;
+  left: 20%;
+  top: $navbar-height + 5;
+
+  .toaster {
+    position: relative;
+    font-size: $font-size-md;
+    text-align: left;
+    text-overflow: ellipsis;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 50px 15px 30px;
+    border-radius: 4px;
+    border-bottom: 1px solid black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+  }
+
+  .toaster-transition {
+    transition-property: all;
+  }
+
+  .toaster-transition-enter {
+    opacity: 0;
+
+    &.toaster-transition-enter-active {
+      opacity: 1;
+    }
+  }
+
+  .toaster-transition-exit {
+    opacity: 1;
+
+    &.toaster-transition-exit-active {
+      opacity: 0;
+    }
+  }
+
+  .error {
+    background: $brand-danger;
+  }
+
+  .success {
+    background: $brand-success;
+  }
+
+  .info {
+    background: $brand-info;
+  }
+
+  .remove-toaster {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    fill: $white;
+
+    &:hover {
+      cursor: pointer;
+      fill: $gray-lighter;
+    }
+  }
+}

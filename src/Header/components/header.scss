@@ -15,14 +15,10 @@
   padding: ($navbar-height - $navbar-menu-height)/2 0;
 }
 
-.navbar-fixed-bottom, .navbar-fixed-top {
-  position: relative !important;
-}
-
 .navbar > .container-fluid {
   .navbar-brand{
     .header-logo {
-      width: 85px;
+      width: 57px;
       margin: 0 25px;
     }
   }

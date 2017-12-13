@@ -3,9 +3,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Header } from '../../Header';
-import PropTypes from 'prop-types';
+import { Toaster } from '../../Toaster';
 
-export const Main = ({ children }) => {
+export const Main = ({ children, toastMessages }) => {
+    console.log('toastMessages :',toastMessages)
     return (
         <div>
             <Helmet>
@@ -15,6 +16,8 @@ export const Main = ({ children }) => {
             <Header />
             <div className="row">
                 <div className="col-xs-12 main-content">
+                    <Toaster toastMessages={toastMessages} />
+
                     <div className="main-content-page">
                         {children}
                     </div>
@@ -24,4 +27,10 @@ export const Main = ({ children }) => {
     );
 };
 
-export default Main;
+function mapStateToProps(state) {
+    return {
+        toastMessages: state.toastMessages.toastMessages
+    };
+}
+
+export default connect(mapStateToProps)(Main);

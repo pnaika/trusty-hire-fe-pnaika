@@ -2,6 +2,7 @@ import './header.scss';
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Breadcrumbs } from '../../Breadcrumbs';
 
 export class Header extends Component {
     constructor() {
@@ -19,6 +20,11 @@ export class Header extends Component {
                         >
                             <img src="../../_app/images/th03.png" className="header-logo"/>
                         </Link>
+                        <div className="header-breadcrumbs">
+                            <Breadcrumbs />
+                        </div>
+
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     </div>
                 </div>
             </nav>
