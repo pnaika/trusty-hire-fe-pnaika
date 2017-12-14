@@ -1,18 +1,37 @@
 import './trustyhirehomepage.scss';
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import LoginForm from './LoginForm';
+import {connect} from "react-redux";
+import {getLoginInformation} from "../../TrustyHireHomePage/actions";
 
 export class TrustyHireHomePage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.submit = this.submit.bind(this);
+    }
+
+    submit(newApplicant) {
+        console.log(JSON.stringify(newApplicant));
+        this.props.getLoginInformation(newApplicant);
+    }
+
     render() {
         return (
             <div className="home-page">
                 <header>Welcome to Trusty Hire</header>
-                <Link to="./applicant-list">
-                    <button className="btn btn-primary">Login</button>
-                </Link>
+                <LoginForm  onSubmit={this.submit}/>
             </div>);
     }
 }
 
-export default TrustyHireHomePage;
+function mapDispatchtoProps(dispatch) {
+    return {
+        getLoginInformation: () => {
+            dispatch(getLoginInformation());
+        }
+    };
+}
+
+export default connect(null, mapDispatchtoProps)(TrustyHireHomePage);
