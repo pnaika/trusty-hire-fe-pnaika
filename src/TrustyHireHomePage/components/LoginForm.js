@@ -55,7 +55,7 @@ export class LoginForm extends Component {
                     />
 
                     <div className="login-form-button margin-top-10">
-                        <button className="btn btn-primary" type="submit" disabled={submitting}>Login</button>
+                        <button className="btn btn-primary" type="submit" disabled={pristine || submitting}>Login</button>
                         <button
                             className="btn btn-default"
                             type="button"
