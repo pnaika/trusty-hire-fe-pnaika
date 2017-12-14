@@ -3,9 +3,7 @@ import './trustyhirehomepage.scss';
 import React, { Component } from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
-import {
-    TextField
-} from 'redux-form-material-ui';
+import { TextField } from 'redux-form-material-ui';
 
 export class LoginForm extends Component {
 
@@ -24,7 +22,7 @@ export class LoginForm extends Component {
     }
 
     componentDidMount() {
-        this.refs.name // the Field
+        this.refs.username // the Field
             .getRenderedComponent() // on Field, returns ReduxFormMaterialUITextField
             .getRenderedComponent() // on ReduxFormMaterialUITextField, returns TextField
             .focus(); // on TextField
@@ -41,7 +39,7 @@ export class LoginForm extends Component {
                         hintText="User name / Email"
                         floatingLabelText="User name/Email"
                         validate={this.requiredFields}
-                        ref="name"
+                        ref="username"
                         withRef
                     />
 

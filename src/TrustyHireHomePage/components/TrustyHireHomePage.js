@@ -2,8 +2,8 @@ import './trustyhirehomepage.scss';
 
 import React, { Component } from 'react';
 import LoginForm from './LoginForm';
-import {connect} from "react-redux";
-import {getLoginInformation} from "../../TrustyHireHomePage/actions";
+import { connect } from 'react-redux';
+import { getLoginInformation } from '../../TrustyHireHomePage/actions';
 
 export class TrustyHireHomePage extends Component {
     constructor(props) {
@@ -12,15 +12,14 @@ export class TrustyHireHomePage extends Component {
         this.submit = this.submit.bind(this);
     }
 
-    submit(newApplicant) {
-        console.log(JSON.stringify(newApplicant));
-        this.props.getLoginInformation(newApplicant);
+    submit(loginInfo) {
+        this.props.getLoginInformation(loginInfo);
     }
 
     render() {
         return (
             <div className="home-page">
-                <header>Welcome to Trusty Hire</header>
+                <header>WELCOME TO TRUSTY HIRE</header>
                 <LoginForm  onSubmit={this.submit}/>
             </div>);
     }
