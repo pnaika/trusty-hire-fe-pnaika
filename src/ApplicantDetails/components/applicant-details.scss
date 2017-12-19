@@ -2,12 +2,8 @@
 
   .applicant-details {
 
-    padding-left: 8%;
-
     section {
       margin-bottom: 20px;
-      margin-left: 10px;
-      background-color: lightgrey;
 
       h3 {
         margin-top: 15px;
@@ -18,6 +14,8 @@
       }
     }
   }
+}
 
-
+.toggle-button {
+  padding-top: 15px;
 }

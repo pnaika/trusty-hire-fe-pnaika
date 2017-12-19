@@ -85,6 +85,13 @@ export class ApplicantList extends Component {
                 filterable: true,
                 filterRenderer: SingleSelectFilter,
                 sortable: true
+            },
+            {
+                key: 'address.state',
+                name: 'Applicant Location',
+                filterable: true,
+                filterRenderer: SingleSelectFilter,
+                sortable: true
             }
         ];
     }
