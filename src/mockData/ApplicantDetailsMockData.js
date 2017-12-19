@@ -1,89 +1,89 @@
 export const ApplicantDetailsMockData = {
-    ApplicantID:'1',
-    firstName:'John',
-    lastName:'Deer',
-    Address:{
-        line1:'123 john me RD',
-        line2:'apt 231',
-        city:'XYZ',
-        state:'IL',
-        country:'US'
+    "id":"5a3945f2e4fb245408855738",
+    "firstName":"Prashanth",
+    "lastName":"RAJ",
+    "address":{
+        "line1":"1620 Brookdale Road apt 23",
+        "city":"NAPERVILLE",
+        "state":"Illinois",
+        "country":"United States"
     },
-    email:'xyz@xyz.com',
-    phoneNumber:'31231231243',
-    gender:'Male',
-    countryOfCitizenship:'India',
-    educationDetails: [{
-        type: 'masters',
-        institute: ' IIT chicago',
-        concentratedArea: 'Software Development',
-        gpa: '3.9',
-        moreDetails: '',
-        yearOfGraduation: '2016'
-    }],
-    skillSet:[
+    "email":"pnaika@hawk.iit.edu",
+    "contactNumber":"312123488",
+    "married":"No",
+    "gender":"male",
+    "countryOfCitizenship":"India",
+    "experience":[
         {
-            skill:'Java',
-            yearOfExp:'3'
+            "company":"Egen Solutions",
+            "companyWebsite":"www.egen.solutions",
+            "workingPeriod":{
+                "from":1450159200000,
+                "till":1513144800000
+            },
+            "experience":"Web Development with the folllowing tech stack"
         },
         {
-            skill:'JS',
-            yearOfExp:'5'
+            "company":"Infosys",
+            "companyWebsite":"www.infosys.com",
+            "workingPeriod":{
+                "from":1308632400000,
+                "till":1408683600000
+            },
+            "experience":"Jquery and lot more front end tech stack"
+        }
+    ],
+    "skillSet":[
+        {
+            "skills":"Java",
+            "experience":"3"
         },
         {
-            skill:'HTML5',
-            yearOfExp:'5'
+            "skills":"JS",
+            "experience":"5"
         },
         {
-            skill:'CSS3',
-            yearOfExp:'5'
-        }
-    ],
-    married:'No',
-    languages:[
-        'Kannada',
-        'English',
-        'Hindi'
-    ],
-    certificates:[
-        {
-            name:'A+',
-            title:'Hardware and Networking',
-            description:'etc etc etc etc',
-            year: '2005'
-        }
-    ],
-    visaStatus:'ABC',
-    visaValidity:'20/12/2019',
-    interviewDetails:[
-        {
-            dateOfInterview:'20/12/2017',
-            interviewFeedback:'Good etc'
-        }
-    ],
-    availableDate:'12/01/2018',
-    applicantLocation:'Chicago',
-    salaryDetails: [
-        {
-            salaryType: 'current',
-            salary:'130000',
-            currency: 'USD'
+            "skills":"Angular",
+            "experience":"5"
         },
         {
-            salaryType: 'expected',
-            salary:'150000',
-            currency: 'USD'
+            "skills":"React",
+            "experience":"5"
         }
     ],
-    links:[
+    "education":[
         {
-            websiteType:'github',
-            link:'http://www.github.com'
+            "institute":"IIT",
+            "instituteWebsite":"www.iit.edu",
+            "type":"Masters",
+            "concentratedArea":"ITM",
+            "gpa":"3.9",
+            "yearOfGraduation":1463202000000,
+            "details":"good subjects and blah blah and blah"
         },
         {
-            websiteType:'linkedIn',
-            link:'http://www.linkedIn.com'
+            "institute":"RNSIT",
+            "instituteWebsite":"www.rnsit.com",
+            "type":"Bachelors",
+            "concentratedArea":"EnC",
+            "gpa":"3.8",
+            "yearOfGraduation":1310619600000,
+            "details":"more learning"
         }
     ],
-    currentDesignation:'Senior Software Engineer'
-};
+    "visaDetails":{
+        "visaStatus":"F1 (Student)",
+        "validity":1609048800000
+    },
+    "websites":[
+        {
+            "github":"www.github.com/pnaika",
+            "linkedIn":"www.l.com",
+            "personalWebsite":"www.prashanthpnaika.com",
+            "others":"etc",
+            "others2":"etc"
+        }
+    ],
+    "notes":"good candidate for Front end technology",
+    "dataSource":"FaceBook"
+}

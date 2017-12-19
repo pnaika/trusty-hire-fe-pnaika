@@ -8,6 +8,7 @@ import {withRouter} from 'react-router-dom';
 import {map} from 'lodash';
 import {getApplicantList} from "../../ApplicantList/actions";
 import { setBreadcrumbs } from "../../Breadcrumbs";
+import * as qs from "query-string";
 
 export class ApplicantDetails extends Component {
     constructor(props) {
@@ -15,8 +16,12 @@ export class ApplicantDetails extends Component {
     }
 
     componentWillMount() {
+        const { location } = this.props;
+        const id = qs.parse(location.search).id;
         this.props.setBreadcrumbs([{label: 'applicant details', link: '/applicant-details'}]);
-        this.props.getApplicantDetails();
+
+        this.props.getApplicantDetails(id);
+
     }
 
     render() {
@@ -122,8 +127,8 @@ function mapStatetoProps(state) {
 
 function mapDispatchtoProps(dispatch) {
     return {
-        getApplicantDetails: () => {
-            dispatch(getApplicantDetails());
+        getApplicantDetails: (id) => {
+            dispatch(getApplicantDetails(id));
         },
         setBreadcrumbs: (breadcrumbs) => {
             dispatch(setBreadcrumbs(breadcrumbs));

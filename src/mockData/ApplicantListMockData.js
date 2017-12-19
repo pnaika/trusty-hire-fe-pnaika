@@ -1,47 +1,168 @@
 export const ApplicantListMockData = [
     {
-        ApplicantID: '1',
-        firstName: 'Prashanth',
-        lastName: 'Naika',
-        address : { line1: 'xyz 123', line2: 'abc', city: 'Chicago', state: 'IL', country:'US' },
-        email: 'pnaika@xyz.com',
-        phoneNumber: '3123123123',
-        gender: 'Male'
+        "id":"5a3945f2e4fb245408855738",
+        "firstName":"Prashanth",
+        "lastName":"RAJ",
+        "address":{
+            "line1":"1620 Brookdale Road apt 23",
+            "city":"NAPERVILLE",
+            "state":"Illinois",
+            "country":"United States"
+        },
+        "email":"pnaika@hawk.iit.edu",
+        "contactNumber":"312123488",
+        "married":"No",
+        "gender":"male",
+        "countryOfCitizenship":"India",
+        "experience":[
+            {
+                "company":"Egen Solutions",
+                "companyWebsite":"www.egen.solutions",
+                "workingPeriod":{
+                    "from":1450159200000,
+                    "till":1513144800000
+                },
+                "experience":"Web Development with the folllowing tech stack"
+            },
+            {
+                "company":"Infosys",
+                "companyWebsite":"www.infosys.com",
+                "workingPeriod":{
+                    "from":1308632400000,
+                    "till":1408683600000
+                },
+                "experience":"Jquery and lot more front end tech stack"
+            }
+        ],
+        "skillSet":[
+            {
+                "skills":"Java",
+                "experience":"3"
+            },
+            {
+                "skills":"JS",
+                "experience":"5"
+            },
+            {
+                "skills":"Angular",
+                "experience":"5"
+            },
+            {
+                "skills":"React",
+                "experience":"5"
+            }
+        ],
+        "education":[
+            {
+                "institute":"IIT",
+                "instituteWebsite":"www.iit.edu",
+                "type":"Masters",
+                "concentratedArea":"ITM",
+                "gpa":"3.9",
+                "yearOfGraduation":1463202000000,
+                "details":"good subjects and blah blah and blah"
+            },
+            {
+                "institute":"RNSIT",
+                "instituteWebsite":"www.rnsit.com",
+                "type":"Bachelors",
+                "concentratedArea":"EnC",
+                "gpa":"3.8",
+                "yearOfGraduation":1310619600000,
+                "details":"more learning"
+            }
+        ],
+        "visaDetails":{
+            "visaStatus":"F1 (Student)",
+            "validity":1609048800000
+        },
+        "websites":[
+            {
+                "github":"www.github.com/pnaika",
+                "linkedIn":"www.l.com",
+                "personalWebsite":"www.prashanthpnaika.com",
+                "others":"etc",
+                "others2":"etc"
+            }
+        ],
+        "notes":"good candidate for Front end technology",
+        "dataSource":"FaceBook"
     },
     {
-        ApplicantID: '2',
-        firstName: 'Ankit',
-        lastName: 'Jain',
-        address : { line1: '123 abc', line2: 'line2', city: 'Austin', state: 'TX', country:'US' },
-        email: 'ajain@xyz.com',
-        phoneNumber: '3123123123',
-        gender: 'Male'
+        "id":"5a394d713697ca4ff0f2b837",
+        "firstName":"Prashanth",
+        "lastName":"naika",
+        "address":{
+            "line1":"1952 carlsbad circle",
+            "city":"Naperville",
+            "state":"Illinois",
+            "country":"United States"
+        },
+        "email":"prashanth17.naik@gmail.com",
+        "contactNumber":"3126478554",
+        "married":"No",
+        "gender":"male",
+        "countryOfCitizenship":"India",
+        "experience":[
+            {
+                "company":"Egen",
+                "companyWebsite":"a",
+                "workingPeriod":{
+                    "from":1513576800000,
+                    "till":1513703619521
+                },
+                "experience":"asas"
+            }
+        ],
+        "skillSet":[
+            {
+                "skills":"Java",
+                "experience":"1"
+            }
+        ],
+        "education":[
+            {
+                "institute":"sdad",
+                "instituteWebsite":"ada",
+                "type":null,
+                "concentratedArea":null,
+                "gpa":null,
+                "yearOfGraduation":null,
+                "details":null
+            }
+        ],
+        "visaDetails":{
+            "visaStatus":"F1",
+            "validity":1513144800000
+        },
+        "websites":null,
+        "notes":null,
+        "dataSource":null
     },
     {
-        ApplicantID: '3',
-        firstName: 'Kesav',
-        lastName: 'Raj',
-        address : { line1: 'aaa123', line2: 'sss', city: 'Chicago', state: 'IL', country:'US' },
-        email: 'kraj@xyz.com',
-        phoneNumber: '3121111111',
-        gender: 'Male'
-    },
-    {
-        ApplicantID: '4',
-        firstName: 'Lady',
-        lastName: 'lastName',
-        address : { line1: '123sdasd', line2: 'asas', city: 'Chicago', state: 'IL', country:'US' },
-        email: 'Llast@xyz.com',
-        phoneNumber: '1113123123',
-        gender: 'Female'
-    },
-    {
-        ApplicantID: '5',
-        firstName: 'XYZ',
-        lastName: 'ABC',
-        address : { line1: 'qwe123', line2: 'ada', city: 'Chicago', state: 'IL', country:'US' },
-        email: 'xyzabc@xyz.com',
-        phoneNumber: '3123123123',
-        gender: 'Male'
+        "id":"5a3955743697ca4ff0f2b838",
+        "firstName":"Deepti",
+        "lastName":"Devarajan",
+        "address":{
+            "line1":"3001 S King Dr",
+            "city":"Chicago",
+            "state":"Illinois",
+            "country":"United States"
+        },
+        "email":"deeptid10@gmail.com",
+        "contactNumber":"3124780803",
+        "married":null,
+        "gender":"female",
+        "countryOfCitizenship":"india",
+        "experience":null,
+        "skillSet":null,
+        "education":null,
+        "visaDetails":{
+            "visaStatus":"F1",
+            "validity":1513836000000
+        },
+        "websites":null,
+        "notes":null,
+        "dataSource":null
     }
-];
+]

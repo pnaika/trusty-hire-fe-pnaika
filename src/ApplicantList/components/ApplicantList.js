@@ -37,14 +37,14 @@ export class ApplicantList extends Component {
     getGridColumns() {
         return [
             {
-                key: 'ApplicantID',
+                key: 'id',
                 name: 'Applicant ID',
                 filterable: true,
                 filterRenderer: SingleSelectFilter,
                 sortable: true,
                 formatter: (
                     <LinkFormatter
-                        pathValue="ApplicantID"
+                        pathValue="id"
                         path="./applicant-details"
                         search="?id="
                     />
@@ -73,7 +73,7 @@ export class ApplicantList extends Component {
                 sortable: true
             },
             {
-                key: 'phoneNumber',
+                key: 'contactNumber',
                 name: 'Contact Number',
                 filterable: true,
                 filterRenderer: SingleSelectFilter,
