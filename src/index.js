@@ -18,7 +18,7 @@ import {TrustyHireHomePage} from './TrustyHireHomePage';
 import {ApplicantList} from './ApplicantList';
 import {ApplicantDetails} from './ApplicantDetails';
 import {AddApplicantDetails} from './AddApplicantDetails';
-import {AuthenticatedRoutesWrapper} from './Auth/AuthenticatedRoutesWrapper';
+import {AuthenticatedRoutesWrapper} from './Auth/components/AuthenticatedRoutesWrapper';
 import {Main} from './Main/components/Main';
 import {MuiThemeProvider} from "material-ui";
 

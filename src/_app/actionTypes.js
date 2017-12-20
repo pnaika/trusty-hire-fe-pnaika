@@ -13,3 +13,6 @@ export const SET_BREADCRUMBS = 'SET_BREADCRUMBS';
 // set toaster acti
 export const ADD_TOAST_MESSAGE = 'ADD_TOAST_MESSAGE';
 export const DELETE_TOAST_MESSAGE = 'DELETE_TOAST_MESSAGE';
+
+
+export const LOGIN_DETAILS = 'LOGIN_DETAILS';

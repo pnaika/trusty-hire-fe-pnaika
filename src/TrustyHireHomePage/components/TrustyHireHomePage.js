@@ -13,6 +13,7 @@ export class TrustyHireHomePage extends Component {
     }
 
     submit(loginInfo) {
+        console.log('loginInfo : ', loginInfo)
         this.props.getLoginInformation(loginInfo);
     }
 
@@ -27,8 +28,8 @@ export class TrustyHireHomePage extends Component {
 
 function mapDispatchtoProps(dispatch) {
     return {
-        getLoginInformation: () => {
-            dispatch(getLoginInformation());
+        getLoginInformation: (loginInfo) => {
+            dispatch(getLoginInformation(loginInfo));
         }
     };
 }

@@ -18,7 +18,7 @@ export class ApplicantDetails extends Component {
     componentWillMount() {
         const { location } = this.props;
         const id = qs.parse(location.search).id;
-        this.props.setBreadcrumbs([{label: 'applicant details', link: '/applicant-details'}]);
+        this.props.setBreadcrumbs([{label: 'Applicant List', link: '/applicant-list'},{label: 'Applicant Details', link: '/applicant-details'}]);
 
         this.props.getApplicantDetails(id);
 
@@ -88,10 +88,10 @@ export class ApplicantDetails extends Component {
                         </section>
 
                         <section className="col-md-4">
-                            <h3>Skillset Details</h3>
+                            <h3>Website and more</h3>
                             <CardController
-                                cardHeader={'Experience Information'}
-                                cardDetails={EXPERIENCE_INFORMATION}
+                                cardHeader={'Websites'}
+                                cardDetails={WEBSITE_INFORMATION}
                                 isExpanded="true"/>
                         </section>
                     </div>
@@ -117,10 +117,10 @@ export class ApplicantDetails extends Component {
                         </section>
 
                         <section className="col-md-4">
-                            <h3>Website and more</h3>
+                            <h3>Skillset Details</h3>
                             <CardController
-                                cardHeader={'Websites'}
-                                cardDetails={WEBSITE_INFORMATION}/>
+                                cardHeader={'Experience Information'}
+                                cardDetails={EXPERIENCE_INFORMATION}/>
                         </section>
                     </div>
 

@@ -16,7 +16,7 @@ export class AddApplicantDetails extends Component {
     }
 
     componentWillMount() {
-        this.props.setBreadcrumbs([ { label: 'Add new applicant', link: '/new-applicant' }]);
+        this.props.setBreadcrumbs([ { label: 'Applicant List', link: '/applicant-list' },{ label: 'Add new applicant', link: '/new-applicant' }]);
     }
 
     submit(newApplicant) {

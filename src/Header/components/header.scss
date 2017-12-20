@@ -29,3 +29,40 @@
   padding: ($navbar-height - $navbar-breadcrumbs-height)/2 0;
   line-height: $navbar-breadcrumbs-height;
 }
+
+.user-icon {
+  padding-top: 18px;
+  padding-right: 10px;
+}
+
+.header-icons-container {
+  padding-left: 30px;
+
+  & > li > a {
+    position: relative;
+    display: block;
+    padding: 0;
+    margin: ($navbar-height - $navbar-icon-height)/2 10px;
+    height: $navbar-icon-height;
+    width: $navbar-icon-height;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    & > .header-icon {
+      padding: 5px;
+      height: 100%;
+      width: 100%;
+      fill: $gray-light;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: background-color .2s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $gray-lighter;
+      }
+    }
+  }
+}

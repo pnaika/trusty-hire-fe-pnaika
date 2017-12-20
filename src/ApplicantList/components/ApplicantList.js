@@ -27,9 +27,7 @@ export class ApplicantList extends Component {
     }
 
     componentWillMount() {
-        const { location } = history;
-
-        this.props.setBreadcrumbs([{label: "applicant list", link: "/applicant-list"}]);
+        this.props.setBreadcrumbs([{ label: 'Applicant List', link: '/applicant-list'}]);
         this.props.getApplicantList();
     }
 

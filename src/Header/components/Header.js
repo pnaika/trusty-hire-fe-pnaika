@@ -3,6 +3,8 @@ import './header.scss';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../../Breadcrumbs';
+import LogoutButton from '../../Auth/components/LogoutButton';
+import UserProfileDropdown from './UserProfileDropdown';
 
 export class Header extends Component {
     constructor() {
@@ -10,6 +12,8 @@ export class Header extends Component {
     }
 
     render() {
+        const userProfileMenuItems = [ <LogoutButton /> ];
+
         return (
             <nav className="navbar navbar-fixed-top">
                 <div className="container-fluid header-background">
@@ -24,7 +28,11 @@ export class Header extends Component {
                             <Breadcrumbs />
                         </div>
 
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <ul className="nav navbar-nav header-icons-container pull-right">
+                            <UserProfileDropdown
+                                menuItems={userProfileMenuItems}
+                            />
+                        </ul>
                     </div>
                 </div>
             </nav>
