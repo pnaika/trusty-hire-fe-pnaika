@@ -3,7 +3,7 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import PropTypes from "prop-types";
-import {map} from "lodash";
+import { map ,camelCase, startCase} from "lodash";
 
 class CardController extends Component {
 
@@ -56,7 +56,7 @@ class CardController extends Component {
                     {
                         map(cardDetails, (detail, index) => {
                             return <div key={index}>
-                                <label> {detail.label} </label>
+                                <label> {startCase(camelCase(detail.label))} </label>
                                 <span> {detail.value} </span>
                             </div>;
                         })

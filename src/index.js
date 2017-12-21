@@ -19,6 +19,7 @@ import {ApplicantList} from './ApplicantList';
 import {ApplicantDetails} from './ApplicantDetails';
 import {AddApplicantDetails} from './AddApplicantDetails';
 import {AuthenticatedRoutesWrapper} from './Auth/components/AuthenticatedRoutesWrapper';
+import {NewUser} from './NewUser';
 import {Main} from './Main/components/Main';
 import {MuiThemeProvider} from "material-ui";
 
@@ -32,6 +33,11 @@ const App = () => {
                                strict
                                path="/"
                                component={TrustyHireHomePage}
+                        />
+                        <Route exact
+                               strict
+                               path="/new-user"
+                               component={NewUser}
                         />
                         <AuthenticatedRoutesWrapper shellComponent={Main}>
                             <Switch>

@@ -22,6 +22,14 @@ export class TrustyHireHomePage extends Component {
             <div className="home-page">
                 <header>WELCOME TO TRUSTY HIRE</header>
                 <LoginForm  onSubmit={this.submit}/>
+                <div className="row margin-bottom-10">
+                    <a className="col-md-6" href="./">
+                        Forgot Password ?
+                    </a>
+                    <a className="col-md-6" href="./new-user">
+                        New User? Sign Up
+                    </a>
+                </div>
             </div>);
     }
 }

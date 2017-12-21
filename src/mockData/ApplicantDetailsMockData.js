@@ -30,7 +30,7 @@ export const ApplicantDetailsMockData = {
                 "from":1308632400000,
                 "till":1408683600000
             },
-            "experience":"Jquery and lot more front end tech stack"
+            "experience":"Jquery and lot morasdjsadjhasgjdhasjhdg ahjsdgjhasgdjha ahsdgjahgdjhagsdjhag adjshajhdgjahgdjgh ajhdgajhgdjhagdjhga ajhsdjahgdjhagdjhg asjhdgajhgdjhagdjhag jhagdjhagdjhadjhgade front end tech stack"
         }
     ],
     "skillSet":[

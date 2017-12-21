@@ -1,12 +1,12 @@
 import './applicant-details.scss';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { getApplicantDetails } from '../actions';
-import { withRouter } from 'react-router-dom';
-import { map, forOwn } from 'lodash';
-import { setBreadcrumbs } from '../../Breadcrumbs';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Helmet} from 'react-helmet';
+import {getApplicantDetails} from '../actions';
+import {withRouter} from 'react-router-dom';
+import { map, forOwn, isObject } from 'lodash';
+import {setBreadcrumbs} from '../../Breadcrumbs';
 import * as qs from 'query-string';
 import CardController from '../../_common/CardController';
 
@@ -16,9 +16,12 @@ export class ApplicantDetails extends Component {
     }
 
     componentWillMount() {
-        const { location } = this.props;
+        const {location} = this.props;
         const id = qs.parse(location.search).id;
-        this.props.setBreadcrumbs([{label: 'Applicant List', link: '/applicant-list'},{label: 'Applicant Details', link: '/applicant-details'}]);
+        this.props.setBreadcrumbs([{label: 'Applicant List', link: '/applicant-list'}, {
+            label: 'Applicant Details',
+            link: '/applicant-details'
+        }]);
 
         this.props.getApplicantDetails(id);
 
@@ -76,75 +79,75 @@ export class ApplicantDetails extends Component {
                 <h1>Applicant Details</h1>
 
                 <div className="applicant-details">
-
                     <div className="row">
-
-                        <section className="col-md-8">
-                            <h3>Personal Details</h3>
-                            <CardController
-                                cardHeader={applicantDetails.firstName + ' ' + applicantDetails.lastName}
-                                cardDetails={PERSONAL_INFORMATION}
-                                isExpanded="true"/>
-                        </section>
-
-                        <section className="col-md-4">
-                            <h3>Website and more</h3>
-                            <CardController
-                                cardHeader={'Websites'}
-                                cardDetails={WEBSITE_INFORMATION}
-                                isExpanded="true"/>
-                        </section>
-                    </div>
-
-                    <div className="row">
-                        <section className="col-md-8">
-                            <h3>Education Details</h3>
-                            {
-                                map(applicantDetails.education, (value, key) => {
-                                    EDUCATION_INFORMATION = [];
-                                    forOwn(value, (key, value) => {
-                                        EDUCATION_INFORMATION.push({
-                                            label: value + ' : ',
-                                            value: key
+                        <div className="col-md-7">
+                            <div className="margin-bottom-10">
+                                <h3>Personal Details</h3>
+                                <CardController
+                                    cardHeader={applicantDetails.firstName + ' ' + applicantDetails.lastName}
+                                    cardDetails={PERSONAL_INFORMATION}
+                                    isExpanded="true"/>
+                            </div>
+                            <div className="margin-bottom-10">
+                                <h3>Work Experience Details</h3>
+                                {
+                                    map(applicantDetails.experience, (value, key) => {
+                                        WORK_INFORMATION = [];
+                                        map(value, (key, value) => {
+                                            isObject(key) ?
+                                                forOwn(key, (objKey, objValue) => {
+                                                    WORK_INFORMATION.push({
+                                                        label: objValue + ' : ',
+                                                        value: objKey
+                                                    });
+                                                }) :
+                                                WORK_INFORMATION.push({
+                                                    label: value + ' : ',
+                                                    value: key
+                                                });
                                         });
-                                    });
-                                    return <CardController
-                                        cardHeader={value.type}
-                                        cardDetails={EDUCATION_INFORMATION}/>;
+                                        return <CardController
+                                            cardHeader={value.company}
+                                            cardDetails={WORK_INFORMATION}/>;
 
-                                })
-                            }
-                        </section>
-
-                        <section className="col-md-4">
-                            <h3>Skillset Details</h3>
-                            <CardController
-                                cardHeader={'Experience Information'}
-                                cardDetails={EXPERIENCE_INFORMATION}/>
-                        </section>
-                    </div>
-
-                    <div className="row">
-                        <section className="col-md-6">
-                            <h3>Work Experience Details</h3>
-                            {
-                                map(applicantDetails.experience, (value, key) => {
-                                    EDUCATION_INFORMATION = [];
-                                    forOwn(value, (key, value) => {
-                                        WORK_INFORMATION.push({
-                                            label: value + ' : ',
-                                            value: key
+                                    })
+                                }
+                            </div>
+                            <div className="margin-bottom-10">
+                                <h3>Education Details</h3>
+                                {
+                                    map(applicantDetails.education, (value, key) => {
+                                        EDUCATION_INFORMATION = [];
+                                        forOwn(value, (key, value) => {
+                                            EDUCATION_INFORMATION.push({
+                                                label: value + ' : ',
+                                                value: key
+                                            });
                                         });
-                                    });
-                                    return <CardController
-                                        cardHeader={value.company}
-                                        cardDetails={WORK_INFORMATION}/>;
+                                        return <CardController
+                                            cardHeader={value.type}
+                                            cardDetails={EDUCATION_INFORMATION}/>;
 
-                                })
-                            }
-                        </section>
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="col-md-5">
+                            <div className="margin-bottom-10">
+                                <h3>Website and more</h3>
+                                <CardController
+                                    cardHeader={'Websites'}
+                                    cardDetails={WEBSITE_INFORMATION}
+                                    isExpanded="true"/>
+                            </div>
+                            <div className="margin-bottom-10">
+                                <h3>Skillset Details</h3>
+                                <CardController
+                                    cardHeader={'Skills'}
+                                    cardDetails={EXPERIENCE_INFORMATION}/>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         );

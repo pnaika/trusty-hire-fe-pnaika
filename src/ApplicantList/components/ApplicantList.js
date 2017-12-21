@@ -8,12 +8,10 @@ import { getApplicantList } from '../actions';
 import { GridView } from '../../GridView';
 import {Link, withRouter} from 'react-router-dom';
 import { Filters } from 'react-data-grid-addons';
-import qs from 'query-string';
-import history from '../../_app/history';
 import { LinkFormatter } from '../../GridView/components/LinkFormatter';
 import { setBreadcrumbs } from '../../Breadcrumbs';
 
-const { SingleSelectFilter } = Filters;
+const { SingleSelectFilter, AutoCompleteFilter } = Filters;
 
 export class ApplicantList extends Component {
     constructor(props) {
@@ -38,7 +36,6 @@ export class ApplicantList extends Component {
                 key: 'id',
                 name: 'Applicant ID',
                 filterable: true,
-                filterRenderer: SingleSelectFilter,
                 sortable: true,
                 formatter: (
                     <LinkFormatter
@@ -74,21 +71,13 @@ export class ApplicantList extends Component {
                 key: 'contactNumber',
                 name: 'Contact Number',
                 filterable: true,
-                filterRenderer: SingleSelectFilter,
-                sortable: true
-            },
-            {
-                key: 'gender',
-                name: 'Gender',
-                filterable: true,
-                filterRenderer: SingleSelectFilter,
                 sortable: true
             },
             {
                 key: 'address.state',
                 name: 'Applicant Location',
                 filterable: true,
-                filterRenderer: SingleSelectFilter,
+                filterRenderer: AutoCompleteFilter,
                 sortable: true
             }
         ];

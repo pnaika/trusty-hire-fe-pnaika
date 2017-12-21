@@ -1,11 +1,11 @@
-import './trustyhirehomepage.scss';
+import './../../TrustyHireHomePage/components/trustyhirehomepage.scss';
 
 import React, { Component } from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import { TextField } from 'redux-form-material-ui';
 
-export class LoginForm extends Component {
+export class NewUserForm extends Component {
 
     constructor(props) {
         super(props);
@@ -33,16 +33,16 @@ export class LoginForm extends Component {
 
         return (
             <form onSubmit={handleSubmit} className="applicant-form">
+                <div>
                     <Field
                         name="username"
                         component={TextField}
-                        hintText="User name / Email"
-                        floatingLabelText="User name/Email"
+                        hintText="User name"
+                        floatingLabelText="User name"
                         validate={this.requiredFields}
                         ref="username"
                         withRef
                     />
-
                     <Field
                         name="password"
                         component={TextField}
@@ -51,31 +51,40 @@ export class LoginForm extends Component {
                         type="password"
                         validate={this.requiredFields}
                     />
+                    <Field
+                        name="email"
+                        component={TextField}
+                        hintText="Email"
+                        floatingLabelText="Email"
+                        validate={this.requiredFields}
+                    />
+                </div>
 
-                    <div className="login-form-button margin-top-10">
-                        <button className="btn btn-primary" type="submit" disabled={pristine || submitting}>Login</button>
-                        <button
-                            className="btn btn-default"
-                            type="button"
-                            disabled={pristine || submitting}
-                            onClick={reset}
-                        >
-                            Clear
-                        </button>
-
-                    </div>
+                <div className="login-form-button margin-top-10">
+                    <button className="btn btn-primary" type="submit" disabled={pristine || submitting}>
+                        Save
+                    </button>
+                    <button
+                        className="btn btn-default"
+                        type="button"
+                        disabled={pristine || submitting}
+                        onClick={reset}
+                    >
+                        Clear
+                    </button>
+                </div>
             </form>);
     }
 }
 
-const selector = formValueSelector('loginForm');
+const selector = formValueSelector('newUserForm');
 
-LoginForm = connect(state => ({
-    newApplicantInfo: selector(state, 'loginForm')
-}))(LoginForm);
+NewUserForm = connect(state => ({
+    newUserInfo: selector(state, 'newUserForm')
+}))(NewUserForm);
 
-LoginForm = reduxForm({
-    form: 'loginForm'
-})(LoginForm);
+NewUserForm = reduxForm({
+    form: 'newUserForm'
+})(NewUserForm);
 
-export default LoginForm;
+export default NewUserForm;
